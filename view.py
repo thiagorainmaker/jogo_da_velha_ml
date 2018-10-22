@@ -8,7 +8,7 @@ print("\n")
 print("-----------------------------------------------------------")
 
 def jogada_invalida(jogo, numb):
-	return (numb == 1 and jogo[0][0] != ' ') or (numb == 2 and jogo[0][1] != ' ') or (numb == 3 or jogo[0][2] != ' ') or (numb == 4 and
+	return (numb == 1 and jogo[0][0] != ' ') or (numb == 2 and jogo[0][1] != ' ') or (numb == 3 and jogo[0][2] != ' ') or (numb == 4 and
 		jogo[1][0] != ' ') or (numb == 5 and jogo[1][1] != ' ') or ( numb == 6 and jogo[1][2] != ' ') or (numb == 7 and jogo[2][0] == ' ') or (numb == 8 and jogo[2][1] != ' ') or (numb == 9 and jogo[2][2] != ' ')
 	
 
