@@ -8,6 +8,28 @@ print(" 7  | 8 | 9  ")
 print("\n")
 print("-----------------------------------------------------------")
 
+def carrega_treino(matrix, n):
+	if n == 0:
+		n = 1
+	else: 
+		n = 0
+	l = ''
+	for x in matrix:
+		for y in x:
+			if(y == 'x'):
+				y = '1'
+			elif(y == ' '):
+				y = '0'
+			elif(y == '0'):
+				y = '2'			
+			l = l+','+y
+	l = l+','+str(n)
+	with open('jogos.cvs', 'a') as arq:
+    		arq.write(l[1:])
+    		arq.write('\n')
+	print(n)
+
+
 def escolhe_jogada(jogo):
 	n = randint(1,9)
 	while jogada_invalida(jogo, n):
@@ -80,12 +102,14 @@ while not verifica_vitoria(matrix):
 		print("Jogo empatado")
 		break
 
-	if int(i) % 2 == 0:
+	if i == 0:
 		simbolo = "x"
 		nb = input('escolha uma casa \n')
+		i = 1
 	else: 	
 		simbolo = "0"
 		nb = escolhe_jogada(matrix)
+		i = 0
 
 	while jogada_invalida(matrix, nb):
 		print('Jogada nula, escolha outru numero \n')
@@ -93,7 +117,8 @@ while not verifica_vitoria(matrix):
 
 	matrix = monta_list(matrix, nb , simbolo)	
 	monta_tela(matrix)
-	i = i+1
+	
 
-
+print(matrix)
+carrega_treino(matrix, i )
 print("fim de jogo!")
